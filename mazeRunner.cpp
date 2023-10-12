@@ -35,18 +35,6 @@ int main(void){
 
     //State machine for menu 
 
-    // Variables to check that input is firstly not a word and secondly not any character other than 1 2 3 4 or 5
-    char Get_Ascii_Menu;
-    std::string Get_String_Menu;
-    int Get_Menu_Num = 0;
-    char Get_Ascii_Maze;
-    std::string Get_String_Maze;
-    int Get_Maze_Num = 0;
-    char Get_Ascii_Solve; 
-    std::string Get_String_Solve;      
-    int Get_Solve_Num = 0;
-
-
     // The input variables
     int build_x = 0;
     int build_y = 0;
@@ -74,6 +62,11 @@ int main(void){
             {
             SolveMenu = 0;
             MazeMenu = 0;
+
+            char Get_Ascii_Menu = ' ';
+            std::string Get_String_Menu = " ";
+            int Get_Menu_Num = 0;
+
             printMainMenu();
             std::cin >> Get_String_Menu;
             if (Get_String_Menu.length() != 1)
@@ -89,6 +82,11 @@ int main(void){
             {
                 while(MazeMenu == 0)
                 {
+
+                char Get_Ascii_Maze = ' ';
+                std::string Get_String_Maze = " ";
+                int Get_Maze_Num = 0;
+
                 printGenerateMazeMenu();
                 std::cin >> Get_String_Maze;
                 if (Get_String_Maze.length() != 1)
@@ -142,36 +140,39 @@ int main(void){
                 }
                 else if(Get_Maze_Num == Option_2)
                 {
-                    std::cout << "Enter the basePoint of maze: " << std::endl;
-                    std::cin >> build_x;
-                    std::cin >> build_y;
-                    std::cin >> build_z;
+                    // std::cout << "Enter the basePoint of maze: " << std::endl;
+                    // std::cin >> build_x;
+                    // std::cin >> build_y;
+                    // std::cin >> build_z;
 
-                    std::cout << "Enter the length and width of maze: " << std::endl;
-                    std::cin >> Maze_Length;
-                    std::cin >> Maze_Width;
+                    // std::cout << "Enter the length and width of maze: " << std::endl;
+                    // std::cin >> Maze_Length;
+                    // std::cin >> Maze_Width;
 
-                    std::cout << "Maze read successfully" << std::endl;
-                    std::cout << "**Printing Maze**" << std::endl;
-                    std::cout << "BasePoint: (" << build_x << ", " << build_y << ", " << build_z << ")" << std::endl;
-                    std::cout << "Structure: " << std::endl;
+                    // std::cout << "Maze read successfully" << std::endl;
+                    // std::cout << "**Printing Maze**" << std::endl;
+                    // std::cout << "BasePoint: (" << build_x << ", " << build_y << ", " << build_z << ")" << std::endl;
+                    // std::cout << "Structure: " << std::endl;
 
-                    char Maze_Structure[Maze_Length][Maze_Width];
+                    // char Maze_Structure[Maze_Length][Maze_Width];
 
-                    for (int row = 0; row < Maze_Length; row++) 
-                    {
-                        for (int col = 0; col < Maze_Width; col++) 
-                        {
-                            std::cout << Maze_Structure[row][col];
-                            }
-                            std::cout << std::endl;
-                            }
+                    // for (int row = 0; row < Maze_Length; row++) 
+                    // {
+                    //     for (int col = 0; col < Maze_Width; col++) 
+                    //     {
+                    //         std::cout << Maze_Structure[row][col];
+                    //         }
+                    //         std::cout << std::endl;
+                    //         }
                     
-                    std::cout << "**End Printing Maze**" << std::endl;
+                    // std::cout << "**End Printing Maze**" << std::endl;
+                    // MazeMenu = 1;
+                    // MainMenu = 0;
+
+                    std::cout << "TODO Generate Random Maze" <<std::endl; 
+                    //TODO Generate Random Maze
                     MazeMenu = 1;
                     MainMenu = 0;
-
-                    //TODO Generate Random Maze
 
                 }
                 else if(Get_Maze_Num == Option_3)
@@ -205,6 +206,7 @@ int main(void){
             else if(Get_Menu_Num == Option_5)
             {
                 //TODO WorldCleaning code
+                std::cout << "TODO WorldCleaning code" <<std::endl;
                 curState = ST_Exit;
                 MainMenu = 1;
                 MainLoop = 1;
@@ -223,6 +225,7 @@ int main(void){
             //TODO Teleport Player to the location
             //TODO flatten the terrain
             //TODO Make maze  
+            std::cout << "TODO Build maze" <<std::endl;
             MainMenu = 0;
             curState = ST_Main;
 
@@ -230,7 +233,11 @@ int main(void){
         else if(curState == ST_SolveMaze)
         {
             while(SolveMenu == 0)
-            {
+            {   
+                char Get_Ascii_Solve = ' '; 
+                std::string Get_String_Solve = " ";      
+                int Get_Solve_Num = 0;
+
                 printSolveMazeMenu();
                 std::cin >> Get_String_Solve;
                 if (Get_String_Solve.length() != 1)
@@ -245,6 +252,7 @@ int main(void){
                 if (Get_Solve_Num == Option_1)
                 {
                     //TODO Solve Manually
+                    std::cout << "TODO Solve Manually" <<std::endl;
                     SolveMenu = 1;
                     MainMenu = 0;
                     curState = ST_Main;
@@ -252,6 +260,7 @@ int main(void){
                 else if(Get_Solve_Num == Option_2)
                 {
                     //TODO show Escape Route
+                    std::cout << "TODO show Escape Route" <<std::endl;
                     SolveMenu = 1;
                     MainMenu = 0;
                     curState = ST_Main;
