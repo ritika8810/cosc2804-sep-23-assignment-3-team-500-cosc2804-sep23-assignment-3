@@ -8,6 +8,11 @@
 
 #define NORMAL_MODE 0
 #define TESTING_MODE 1
+#define Option_1 49
+#define Option_2 50
+#define Option_3 51
+#define Option_4 52
+#define Option_5 53
 
 enum States{
     ST_Main,
@@ -29,82 +34,92 @@ int main(void){
     States curState = ST_Main;
 
     //State machine for menu 
-    char getACSIImenu;
-    std::string getStringmenu;
-    int getMenuNum = 0;
-    char getACSIImaze;
-    std::string getStringmaze;
-    int getMazeNum = 0;
-    char getACSIIsolve; 
-    std::string getStringsolve;      
-    int getSolveNum = 0;
 
+    // Variables to check that input is firstly not a word and secondly not any character other than 1 2 3 4 or 5
+    char Get_Ascii_Menu;
+    std::string Get_String_Menu;
+    int Get_Menu_Num = 0;
+    char Get_Ascii_Maze;
+    std::string Get_String_Maze;
+    int Get_Maze_Num = 0;
+    char Get_Ascii_Solve; 
+    std::string Get_String_Solve;      
+    int Get_Solve_Num = 0;
+
+
+    // The input variables
     int build_x = 0;
     int build_y = 0;
     int build_z = 0;
-    int envLength = 0;
-    int envWidth = 0;
+    int Maze_Length = 0;
+    int Maze_Width = 0;
     
-    int check = 0;
-    int check2 = 0;
-    int main = 0;
-    int num = 0;
-     
+    // The condition variables for while loops
+    int MainMenu = 0;
+    int MazeMenu = 0;
+    int MainLoop = 0;
+    int SolveMenu = 0;
+    
     while (curState != ST_Exit)
     {
-        while(main == 0){
-            main = 0;
-            num = 0;
-            check2 = 0;
-            //check = 0;
-        if(curState == ST_Main){
-            //MainMenu:
-            
-            while(check == 0){
-            check = 0;
-            num = 0;
-            check2 = 0;
+        while(MainLoop == 0)
+        {
+            SolveMenu = 0;
+            MazeMenu = 0;
+
+        if(curState == ST_Main)
+        {
+
+            while(MainMenu == 0)
+            {
+            SolveMenu = 0;
+            MazeMenu = 0;
             printMainMenu();
-            std::cin >> getStringmenu;
-            if (getStringmenu.length() != 1){
+            std::cin >> Get_String_Menu;
+            if (Get_String_Menu.length() != 1)
+            {
                 std::cout << "Input Error: Enter a number between 1 and 5 ...." << std::endl;
-                //goto MainMenu;
-                check = 0;
+                MainMenu = 0;
             }
-            else{
-            getACSIImenu = getStringmenu[0];
-            getMenuNum = int(getACSIImenu);
-            if(getMenuNum == 49){
-                //MazeMenu:
-                while(check2 == 0){
-                check2 = 0;
+            else
+            {
+            Get_Ascii_Menu = Get_String_Menu[0];
+            Get_Menu_Num = int(Get_Ascii_Menu);
+            if(Get_Menu_Num == Option_1)
+            {
+                while(MazeMenu == 0)
+                {
                 printGenerateMazeMenu();
-                std::cin >> getStringmaze;
-                if (getStringmaze.length() != 1){
+                std::cin >> Get_String_Maze;
+                if (Get_String_Maze.length() != 1)
+                {
                 std::cout << "Input Error: Enter a number between 1 and 3 ...." << std::endl;
-                //goto MazeMenu;
-                check2 = 0;
+                MazeMenu = 0;
                 }
-                else{
-                getACSIImaze = getStringmaze[0];
-                getMazeNum = int(getACSIImaze);
-                if (getMazeNum == 49){
+                else
+                {
+                Get_Ascii_Maze = Get_String_Maze[0];
+                Get_Maze_Num = int(Get_Ascii_Maze);
+                if (Get_Maze_Num == Option_1)
+                {
                     std::cout << "Enter the basePoint of maze: " << std::endl;
                     std::cin >> build_x;
                     std::cin >> build_y;
                     std::cin >> build_z;
 
                     std::cout << "Enter the length and width of maze: " << std::endl;
-                    std::cin >> envLength;
-                    std::cin >> envWidth;
+                    std::cin >> Maze_Length;
+                    std::cin >> Maze_Width;
 
                     std::cout << "Enter the maze structure: " << std::endl;
-                    char envStructure[envLength][envWidth];
+                    char Maze_Structure[Maze_Length][Maze_Width];
                     char readChar;
-                    for (int row = 0; row < envLength; row++) {
-                        for (int col = 0; col < envWidth; col++) {
+                    for (int row = 0; row < Maze_Length; row++) 
+                    {
+                        for (int col = 0; col < Maze_Width; col++) 
+                        {
                             std::cin >> readChar;
-                            envStructure[row][col] = readChar;
+                            Maze_Structure[row][col] = readChar;
                             }
                             }    
                     std::cout << "Maze read successfully" << std::endl;
@@ -112,149 +127,153 @@ int main(void){
                     std::cout << "BasePoint: (" << build_x << ", " << build_y << ", " << build_z << ")" << std::endl;
                     std::cout << "Structure: " << std::endl;
 
-                    for (int row = 0; row < envLength; row++) {
-                        for (int col = 0; col < envWidth; col++) {
-                            std::cout << envStructure[row][col];
+                    for (int row = 0; row < Maze_Length; row++) 
+                    {
+                        for (int col = 0; col < Maze_Width; col++) 
+                        {
+                            std::cout << Maze_Structure[row][col];
                             }
                             std::cout << std::endl;
                             }
                     
                     std::cout << "**End Printing Maze**" << std::endl;
-                    //goto MainMenu;
-                    check2 = 1;
-                    check = 0;
+                    MazeMenu = 1;
+                    MainMenu = 0;
                 }
-                else if(getMazeNum == 50){
+                else if(Get_Maze_Num == Option_2)
+                {
                     std::cout << "Enter the basePoint of maze: " << std::endl;
                     std::cin >> build_x;
                     std::cin >> build_y;
                     std::cin >> build_z;
 
                     std::cout << "Enter the length and width of maze: " << std::endl;
-                    std::cin >> envLength;
-                    std::cin >> envWidth;
+                    std::cin >> Maze_Length;
+                    std::cin >> Maze_Width;
 
                     std::cout << "Maze read successfully" << std::endl;
                     std::cout << "**Printing Maze**" << std::endl;
                     std::cout << "BasePoint: (" << build_x << ", " << build_y << ", " << build_z << ")" << std::endl;
                     std::cout << "Structure: " << std::endl;
 
-                    char envStructure[envLength][envWidth];
+                    char Maze_Structure[Maze_Length][Maze_Width];
 
-                    for (int row = 0; row < envLength; row++) {
-                        for (int col = 0; col < envWidth; col++) {
-                            std::cout << envStructure[row][col];
+                    for (int row = 0; row < Maze_Length; row++) 
+                    {
+                        for (int col = 0; col < Maze_Width; col++) 
+                        {
+                            std::cout << Maze_Structure[row][col];
                             }
                             std::cout << std::endl;
                             }
                     
                     std::cout << "**End Printing Maze**" << std::endl;
-                    //goto MainMenu;
-                    check2 = 1;
-                    check = 0;
-
+                    MazeMenu = 1;
+                    MainMenu = 0;
 
                     //TODO Generate Random Maze
+
                 }
-                else if(getMazeNum == 51){
-                    //goto MainMenu;
-                    check2 = 1;
-                    check = 0;
+                else if(Get_Maze_Num == Option_3)
+                {
+                    MazeMenu = 1;
+                    MainMenu = 0;
                 }
-                else {
+                else 
+                {
                     std::cout << "Input Error: Enter a number between 1 and 3 ...." << std::endl;
-                    //goto MazeMenu;
-                    check2 = 0;
+                    MazeMenu = 0;
                 }   
             } 
             }
             }
-            else if(getMenuNum == 50){ 
+            else if(Get_Menu_Num == Option_2)
+            { 
                 curState = ST_GetMaze;
-                check = 1;
+                MainMenu = 1;
             }
-            else if(getMenuNum == 51){
+            else if(Get_Menu_Num == Option_3)
+            {
                 curState = ST_SolveMaze;
-                check = 1;
+                MainMenu = 1;
             }
-            else if(getMenuNum == 52){
+            else if(Get_Menu_Num == Option_4)
+            {
                 curState = ST_Creators;
-                check = 1;
+                MainMenu = 1;
             }
-            else if(getMenuNum == 53){
+            else if(Get_Menu_Num == Option_5)
+            {
                 //TODO WorldCleaning code
                 curState = ST_Exit;
-                check = 1;
-                main = 1;
+                MainMenu = 1;
+                MainLoop = 1;
             }
-            // else if (getMenuNum != 1 && getMenuNum != 2 && getMenuNum != 3 && getMenuNum != 4 && getMenuNum != 5){
-            //     std::cout << "Input Error: Enter a number between 1 and 5 ...." << std::endl;
-            //     //goto MainMenu;
-            // }
+            else if (Get_Menu_Num != Option_1 && Get_Menu_Num != Option_2 && Get_Menu_Num != Option_3 && Get_Menu_Num != Option_4 && Get_Menu_Num != Option_5)
+            {
+                std::cout << "Input Error: Enter a number between 1 and 5 ...." << std::endl;
+                MainMenu = 0;
+            }
         }
         }
         }
-        else if(curState == ST_GetMaze){
+        else if(curState == ST_GetMaze)
+        {
             //TODO check if a maze already exists
             //TODO Teleport Player to the location
             //TODO flatten the terrain
             //TODO Make maze  
-            //goto MainMenu;
-            check = 0;
+            MainMenu = 0;
             curState = ST_Main;
 
         }
-        else if(curState == ST_SolveMaze){
-            //SolveMenu:
-            while(num == 0){
-                num = 0;
+        else if(curState == ST_SolveMaze)
+        {
+            while(SolveMenu == 0)
+            {
                 printSolveMazeMenu();
-                std::cin >> getStringsolve;
-                if (getStringsolve.length() != 1){
+                std::cin >> Get_String_Solve;
+                if (Get_String_Solve.length() != 1)
+                {
                 std::cout << "Input Error: Enter a number between 1 and 3 ...." << std::endl;
-                //goto SolveMenu;
-                num = 0;
+                SolveMenu = 0;
                 }
-                else{
-                getACSIIsolve = getStringsolve[0];
-                getSolveNum = int(getACSIIsolve);
-                if (getSolveNum == 49){
+                else
+                {
+                Get_Ascii_Solve = Get_String_Solve[0];
+                Get_Solve_Num = int(Get_Ascii_Solve);
+                if (Get_Solve_Num == Option_1)
+                {
                     //TODO Solve Manually
-                    //main = 0;
-                    num = 1;
-                    check = 0;
+                    SolveMenu = 1;
+                    MainMenu = 0;
                     curState = ST_Main;
-                    //check = 1;
                 }
-                else if(getSolveNum == 50){
+                else if(Get_Solve_Num == Option_2)
+                {
                     //TODO show Escape Route
-                    //main = 1;
-                    num = 1;
-                    check = 0;
+                    SolveMenu = 1;
+                    MainMenu = 0;
                     curState = ST_Main;
-                    //check = 1;
                 }
-                else if(getSolveNum == 51){
-                    //goto MainMenu;
-                    //main = 0;
-                    num = 1;
-                    check = 0;
+                else if(Get_Solve_Num == Option_3)
+                {
+                    SolveMenu = 1;
+                    MainMenu = 0;
                     curState = ST_Main;
-                    //check = 1;
                 } 
-                else {
+                else 
+                {
                     std::cout << "Input Error: Enter a number between 1 and 3 ...." << std::endl;
-                    //goto SolveMenu;
-                    num = 0;
+                    SolveMenu = 0;
                 }
         }
         }
         }
-        else if(curState == ST_Creators){
+        else if(curState == ST_Creators)
+        {
             printTeamInfo();
-            //goto MainMenu;
-            //main = 0;
-            check = 0;
+            MainMenu = 0;
             curState = ST_Main;
         }
 
@@ -270,10 +289,9 @@ int main(void){
 
     //checklist
     //mainmenu 1 2 3 4 5 else             // remaining : 1 , 2 , 3 , 5
-    //1 generatemazemenu 1 2 3 else       // remaining : 2
-    //2 buildmaze                         // remaining : all
+    //1 generatemazemenu 1 2 3 else       // remaining : 1 and 2
+    //2 buildmaze                         // remaining : 1
     //3 solvemazemenu 1 2 3 else          // remaining : 1 and 2
-    //4 teaminfo                          // remaining : done  .....................................
     //5 exit                              // remaining :worldcleaning
 
 
