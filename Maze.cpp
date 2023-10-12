@@ -6,6 +6,7 @@ Maze::Maze(mcpp::Coordinate basePoint, unsigned int xlen,
                                     unsigned int zlen,
                                     bool mode)
 {
+    //test comment
 }
 
 Maze::~Maze()
