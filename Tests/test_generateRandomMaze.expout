@@ -1,3 +1,4 @@
+
 Welcome to MineCraft MazeRunner!
 --------------------------------
 
@@ -8,21 +9,14 @@ Welcome to MineCraft MazeRunner!
 4) Show Team Information
 5) Exit
 
-Enter Menu item to continue: 
+Enter Menu item to continue:
 
 ------------- GENERATE MAZE -------------
 1) Read Maze from terminal
 2) Generate Random Maze
 3) Back
 
-Enter Menu item to continue: 
-Maze generated successfully
-**Printing Maze**
-BasePoint: (4848, 71, 4369)
-Structure:
-Generated Random Maze Structure
-**End Printing Maze**
-
+Enter Menu item to continue:
 
 ------------- MAIN MENU -------------
 1) Generate Maze
@@ -31,6 +25,39 @@ Generated Random Maze Structure
 4) Show Team Information
 5) Exit
 
-Enter Menu item to continue: 
+Enter Menu item to continue:
+TODO WorldCleaning code
 
 The End!
+[2:11 pm, 13/10/2023] Dev Bakshi Uni: Welcome to MineCraft MazeRunner!
+--------------------------------
+
+------------- MAIN MENU -------------
+1) Generate Maze
+2) Build Maze in MineCraft
+3) Solve Maze
+4) Show Team Information
+5) Exit
+
+Enter Menu item to continue:
+
+------------- GENERATE MAZE -------------
+1) Read Maze from terminal
+2) Generate Random Maze
+3) Back
+
+Enter Menu item to continue:
+TODO Generate Random Maze
+
+------------- MAIN MENU -------------
+1) Generate Maze
+2) Build Maze in MineCraft
+3) Solve Maze
+4) Show Team Information
+5) Exit
+
+Enter Menu item to continue:
+TODO WorldCleaning code
+
+The End!
+
