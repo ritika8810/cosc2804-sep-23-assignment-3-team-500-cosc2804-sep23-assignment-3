@@ -1,3 +1,4 @@
+
 Welcome to MineCraft MazeRunner!
 --------------------------------
 
@@ -15,10 +16,7 @@ Enter Menu item to continue:
 2) Generate Random Maze
 3) Back
 
-Enter Menu item to continue: 
-
-Welcome to MineCraft MazeRunner!
---------------------------------
+Enter Menu item to continue:
 
 ------------- MAIN MENU -------------
 1) Generate Maze
@@ -27,6 +25,8 @@ Welcome to MineCraft MazeRunner!
 4) Show Team Information
 5) Exit
 
-Enter Menu item to continue: 
+Enter Menu item to continue:
+TODO WorldCleaning code
 
 The End!
+
